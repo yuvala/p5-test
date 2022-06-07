@@ -23,16 +23,16 @@ var ColorHelper = (function () {
         }
         var rainbowColors = baseColorArray.map(function (x) { return _this.getColorVector(x); });
         ;
-        var colours = new Array();
+        var colors = new Array();
         for (var i = 0; i < total; i++) {
             var colorPosition = i / total;
             var scaledColorPosition = colorPosition * (rainbowColors.length - 1);
             var colorIndex = Math.floor(scaledColorPosition);
             var colorPercentage = scaledColorPosition - colorIndex;
             var nameColor = this.getColorByPercentage(rainbowColors[colorIndex], rainbowColors[colorIndex + 1], colorPercentage);
-            colours.push(color(nameColor.x, nameColor.y, nameColor.z));
+            colors.push(color(nameColor.x, nameColor.y, nameColor.z));
         }
-        return colours;
+        return colors;
     };
     ColorHelper.getColorByPercentage = function (firstColor, secondColor, percentage) {
         var firstColorCopy = firstColor.copy();
@@ -63,7 +63,7 @@ var PolygonHelper = (function () {
 }());
 var numberOfShapesControl;
 function setup() {
-    console.log("🚀 - Setup initialized - P5 is running");
+    console.log("launch - Setup initialized - P5 is running");
     createCanvas(windowWidth, windowHeight);
     rectMode(CENTER).noFill().frameRate(30);
     numberOfShapesControl = createSlider(1, 30, 15, 1).position(10, 10).style("width", "100px");
@@ -79,7 +79,7 @@ function draw() {
     var speed = (frameCount / (numberOfShapes * 30)) * 2;
     for (var i = 0; i < numberOfShapes; i++) {
         push();
-        var lineWidth = 8;
+        var lineWidth = 10;
         var spin = speed * (numberOfShapes - i);
         var numberOfSides = 3 + i;
         var width_1 = 40 * i;
